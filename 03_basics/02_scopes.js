@@ -45,6 +45,6 @@ console.log(value);
 // A function can return a value back to the code that called it
 // The return statement is used to return a value from a function
 function myFunction(x, y = 13) {
-  return x + y;
+    return x + y;
 }
 console.log(myFunction(5));
