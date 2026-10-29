@@ -76,3 +76,30 @@ function getScore() {
 
 console.log(getScore()); // "Chamakh scored 5"
 
+//Multiply-nested functions
+//Functions can be multiply-nested. For example:
+// A function (A) contains a function (B), which itself contains a function (C).
+// Both functions B and C form closures here. So, B can access A, and C can access B.
+// In addition, since C can access B which can access A, C can also access A.
+
+function A(x) {
+  function B(y) {
+    function C(z) {
+      console.log(x + y + z);
+    }
+    C(3);
+  }
+  B(2);
+}
+A(1); // Logs 6 (which is 1 + 2 + 3)
+
+//Name conflicts
+function outside() {
+  const x = 5;
+  function inside(x) {
+    return x * 2;
+  }
+  return inside;
+}
+
+console.log(outside()(10)); // 20 (instead of 10)
