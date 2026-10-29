@@ -103,3 +103,14 @@ function outside() {
 }
 
 console.log(outside()(10)); // 20 (instead of 10)
+
+//Using the arguments object
+function myConcat(separator) {
+  let result = ""; // initialize list
+  // iterate through arguments
+  for (let i = 1; i < arguments.length; i++) {
+    result += arguments[i] + separator;
+  }
+  return result;
+}
+console.log(myConcat(", ", "red", "orange", "blue")); // "red, orange, blue, "
