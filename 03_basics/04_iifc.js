@@ -17,6 +17,7 @@
 } )("Dev");// Output: Hello, I am an IIFE! My name is Dev
 
 
+
 const counter = (function () {
   let value = 1;
   return {
@@ -25,5 +26,44 @@ const counter = (function () {
   };
 })();
 
-counter.increment();// value is now 1
-console.log(counter.get()); // Output: 1
+counter.increment();// value is now 2
+console.log(counter.get()); // Output: 2
+
+const createPet = function (name) {
+  let sex;
+
+  const pet = {
+    // setName(newName) is equivalent to setName: function (newName)
+    // in this context
+    setName(newName) {
+      name = newName;
+    },
+
+    getName() {
+      return name;
+    },
+
+    getSex() {
+      return sex;
+    },
+
+    setSex(newSex) {
+      if (
+        typeof newSex === "string" &&
+        (newSex.toLowerCase() === "male" || newSex.toLowerCase() === "female")
+      ) {
+        sex = newSex;
+      }
+    },
+  };
+
+  return pet;
+};
+
+const pet = createPet("Dev");
+console.log(pet.getName()); // Dev
+
+pet.setName("Oliver");
+pet.setSex("male");
+console.log(pet.getSex()); // male
+console.log(pet.getName()); // Oliver
