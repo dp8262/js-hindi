@@ -41,3 +41,24 @@ function handleArray(getArray) {
     return getArray;
 }
 console.log(handleArray([145, 235, 185, 702]));
+
+function A(x) {
+  function B(y) {
+    function C(z) {
+      console.log(x + y + z);
+    }
+    C(46);
+  }
+  B(25);
+}
+A(99); // Logs 170 (which is 99 + 25 + 46)
+
+function outside() {
+  const x = 555;
+  function inside(x) {
+    return x * 2;
+  }
+  return inside;
+}
+
+console.log(outside()(100)); // 200 (instead of 10)
